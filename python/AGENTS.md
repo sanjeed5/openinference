@@ -1,11 +1,5 @@
 # Python Workspace Guide
 
-Python instrumentation packages for OpenInference. Uses tox + tox-uv for automation, ruff for formatting/linting, mypy for type checking, and pytest for tests. Python 3.9+ supported.
-
-The `openinference` namespace package is composed by symlinking individual instrumentor source trees into the core package directory (`add_symlinks` tox environment).
-
----
-
 ## Setup
 
 ```bash
@@ -41,41 +35,41 @@ Replace `openai` with any package token from the list below.
 
 ### Package tokens (use in tox commands)
 
-| Token | Package directory |
-|-------|------------------|
-| `semconv` | `openinference-semantic-conventions/` |
-| `instrumentation` | `openinference-instrumentation/` |
-| `openai` | `instrumentation/openinference-instrumentation-openai/` |
-| `openai_agents` | `instrumentation/openinference-instrumentation-openai-agents/` |
-| `anthropic` | `instrumentation/openinference-instrumentation-anthropic/` |
-| `bedrock` | `instrumentation/openinference-instrumentation-bedrock/` |
-| `mistralai` | `instrumentation/openinference-instrumentation-mistralai/` |
-| `groq` | `instrumentation/openinference-instrumentation-groq/` |
-| `litellm` | `instrumentation/openinference-instrumentation-litellm/` |
-| `langchain` | `instrumentation/openinference-instrumentation-langchain/` |
-| `llama_index` | `instrumentation/openinference-instrumentation-llama-index/` |
-| `dspy` | `instrumentation/openinference-instrumentation-dspy/` |
-| `instructor` | `instrumentation/openinference-instrumentation-instructor/` |
-| `crewai` | `instrumentation/openinference-instrumentation-crewai/` |
-| `haystack` | `instrumentation/openinference-instrumentation-haystack/` |
-| `vertexai` | `instrumentation/openinference-instrumentation-vertexai/` |
-| `smolagents` | `instrumentation/openinference-instrumentation-smolagents/` |
-| `autogen` | `instrumentation/openinference-instrumentation-autogen/` |
+| Token               | Package directory                                                  |
+| ------------------- | ------------------------------------------------------------------ |
+| `semconv`           | `openinference-semantic-conventions/`                              |
+| `instrumentation`   | `openinference-instrumentation/`                                   |
+| `openai`            | `instrumentation/openinference-instrumentation-openai/`            |
+| `openai_agents`     | `instrumentation/openinference-instrumentation-openai-agents/`     |
+| `anthropic`         | `instrumentation/openinference-instrumentation-anthropic/`         |
+| `bedrock`           | `instrumentation/openinference-instrumentation-bedrock/`           |
+| `mistralai`         | `instrumentation/openinference-instrumentation-mistralai/`         |
+| `groq`              | `instrumentation/openinference-instrumentation-groq/`              |
+| `litellm`           | `instrumentation/openinference-instrumentation-litellm/`           |
+| `langchain`         | `instrumentation/openinference-instrumentation-langchain/`         |
+| `llama_index`       | `instrumentation/openinference-instrumentation-llama-index/`       |
+| `dspy`              | `instrumentation/openinference-instrumentation-dspy/`              |
+| `instructor`        | `instrumentation/openinference-instrumentation-instructor/`        |
+| `crewai`            | `instrumentation/openinference-instrumentation-crewai/`            |
+| `haystack`          | `instrumentation/openinference-instrumentation-haystack/`          |
+| `vertexai`          | `instrumentation/openinference-instrumentation-vertexai/`          |
+| `smolagents`        | `instrumentation/openinference-instrumentation-smolagents/`        |
+| `autogen`           | `instrumentation/openinference-instrumentation-autogen/`           |
 | `autogen_agentchat` | `instrumentation/openinference-instrumentation-autogen-agentchat/` |
-| `beeai` | `instrumentation/openinference-instrumentation-beeai/` |
-| `portkey` | `instrumentation/openinference-instrumentation-portkey/` |
-| `mcp` | `instrumentation/openinference-instrumentation-mcp/` |
-| `google_genai` | `instrumentation/openinference-instrumentation-google-genai/` |
-| `google_adk` | `instrumentation/openinference-instrumentation-google-adk/` |
-| `pydantic_ai` | `instrumentation/openinference-instrumentation-pydantic-ai/` |
-| `openllmetry` | `instrumentation/openinference-instrumentation-openllmetry/` |
-| `openlit` | `instrumentation/openinference-instrumentation-openlit/` |
-| `strands_agents` | `instrumentation/openinference-instrumentation-strands-agents/` |
-| `pipecat` | `instrumentation/openinference-instrumentation-pipecat/` |
-| `agent_framework` | `instrumentation/openinference-instrumentation-agent-framework/` |
-| `agno` | `instrumentation/openinference-instrumentation-agno/` |
-| `guardrails` | `instrumentation/openinference-instrumentation-guardrails/` |
-| `agentspec` | `instrumentation/openinference-instrumentation-agentspec/` |
+| `beeai`             | `instrumentation/openinference-instrumentation-beeai/`             |
+| `portkey`           | `instrumentation/openinference-instrumentation-portkey/`           |
+| `mcp`               | `instrumentation/openinference-instrumentation-mcp/`               |
+| `google_genai`      | `instrumentation/openinference-instrumentation-google-genai/`      |
+| `google_adk`        | `instrumentation/openinference-instrumentation-google-adk/`        |
+| `pydantic_ai`       | `instrumentation/openinference-instrumentation-pydantic-ai/`       |
+| `openllmetry`       | `instrumentation/openinference-instrumentation-openllmetry/`       |
+| `openlit`           | `instrumentation/openinference-instrumentation-openlit/`           |
+| `strands_agents`    | `instrumentation/openinference-instrumentation-strands-agents/`    |
+| `pipecat`           | `instrumentation/openinference-instrumentation-pipecat/`           |
+| `agent_framework`   | `instrumentation/openinference-instrumentation-agent-framework/`   |
+| `agno`              | `instrumentation/openinference-instrumentation-agno/`              |
+| `guardrails`        | `instrumentation/openinference-instrumentation-guardrails/`        |
+| `agentspec`         | `instrumentation/openinference-instrumentation-agentspec/`         |
 
 ---
 
@@ -120,14 +114,14 @@ with tracer.start_as_current_span(name="my-span") as span:
 
 Available context managers (imported from `openinference.instrumentation`):
 
-| Context Manager | Purpose |
-|----------------|---------|
-| `using_session(id)` | Attach a session ID to all spans in the block |
-| `using_user(id)` | Attach a user ID to all spans in the block |
-| `using_metadata({})` | Attach custom metadata to all spans in the block |
-| `using_tag([])` | Attach tags to all spans in the block |
-| `using_prompt_template(template, version, variables)` | Attach prompt template info |
-| `using_attributes(...)` | Set multiple context attributes at once |
+| Context Manager                                       | Purpose                                          |
+| ----------------------------------------------------- | ------------------------------------------------ |
+| `using_session(id)`                                   | Attach a session ID to all spans in the block    |
+| `using_user(id)`                                      | Attach a user ID to all spans in the block       |
+| `using_metadata({})`                                  | Attach custom metadata to all spans in the block |
+| `using_tag([])`                                       | Attach tags to all spans in the block            |
+| `using_prompt_template(template, version, variables)` | Attach prompt template info                      |
+| `using_attributes(...)`                               | Set multiple context attributes at once          |
 
 ### Feature 3 — OITracer (TraceConfig masking)
 
@@ -150,30 +144,12 @@ def _instrument(self, **kwargs: Any) -> None:
 
 ---
 
-## Instrumentor Class Pattern
-
-```python
-from typing import Any, Collection
-from opentelemetry.instrumentation.instrumentor import BaseInstrumentor
-
-class MyFrameworkInstrumentor(BaseInstrumentor):
-    def instrumentation_dependencies(self) -> Collection[str]:
-        return ("my-framework >= 1.0",)
-
-    def _instrument(self, **kwargs: Any) -> None:
-        # 1. Get tracer_provider and config from kwargs
-        # 2. Wrap with OITracer
-        # 3. Apply monkey-patches to the target library
-
-    def _uninstrument(self, **kwargs: Any) -> None:
-        # Reverse all monkey-patches; restore original functions
-```
-
----
-
 ## Creating a New Python Instrumentor
 
+The instrumentor must subclass `BaseInstrumentor` and implement `_instrument()` and `_uninstrument()`.
+
 1. **Copy the canonical package** as a starting point:
+
    ```bash
    cp -r python/instrumentation/openinference-instrumentation-openai/ \
          python/instrumentation/openinference-instrumentation-<name>/
@@ -188,8 +164,6 @@ class MyFrameworkInstrumentor(BaseInstrumentor):
 3. **Register in `python/tox.ini`**:
    - Add `<token>: instrumentation/openinference-instrumentation-<name>/` under `changedir`
    - Add `<token>: uv pip install ...` lines under `commands_pre`
-
-4. **Register in `release-please-config.json`** — add the new package path so release-please tracks it for version bumps and PyPI releases.
 
 ---
 
@@ -224,6 +198,7 @@ def test_trace_config_masking(tracer_provider):
 ```
 
 Pytest configuration in `pyproject.toml`:
+
 ```toml
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
@@ -231,89 +206,208 @@ asyncio_mode = "auto"
 
 ---
 
-## Semantic Conventions
-
-```python
-from openinference.semconv.trace import SpanAttributes, OpenInferenceSpanKindValues
-
-# Required on every span:
-span.set_attribute(
-    SpanAttributes.OPENINFERENCE_SPAN_KIND,
-    OpenInferenceSpanKindValues.LLM.value,
-)
-
-# Common LLM attributes:
-span.set_attribute(SpanAttributes.LLM_MODEL_NAME, "gpt-4o")
-span.set_attribute(SpanAttributes.INPUT_VALUE, prompt_text)
-span.set_attribute(SpanAttributes.OUTPUT_VALUE, response_text)
-span.set_attribute(SpanAttributes.LLM_TOKEN_COUNT_PROMPT, prompt_tokens)
-span.set_attribute(SpanAttributes.LLM_TOKEN_COUNT_COMPLETION, completion_tokens)
-span.set_attribute(SpanAttributes.LLM_TOKEN_COUNT_TOTAL, total_tokens)
-
-# Flattened message arrays (zero-based index):
-for i, msg in enumerate(messages):
-    span.set_attribute(f"llm.input_messages.{i}.message.role", msg["role"])
-    span.set_attribute(f"llm.input_messages.{i}.message.content", msg["content"])
-```
-
----
-
-## All Python Instrumentation Packages (33 total)
-
-| Framework | Package name | tox token |
-|-----------|-------------|-----------|
-| OpenAI | `openinference-instrumentation-openai` | `openai` |
-| OpenAI Agents | `openinference-instrumentation-openai-agents` | `openai_agents` |
-| Anthropic | `openinference-instrumentation-anthropic` | `anthropic` |
-| AWS Bedrock | `openinference-instrumentation-bedrock` | `bedrock` |
-| Mistral AI | `openinference-instrumentation-mistralai` | `mistralai` |
-| Groq | `openinference-instrumentation-groq` | `groq` |
-| LiteLLM | `openinference-instrumentation-litellm` | `litellm` |
-| LangChain | `openinference-instrumentation-langchain` | `langchain` |
-| LlamaIndex | `openinference-instrumentation-llama-index` | `llama_index` |
-| DSPy | `openinference-instrumentation-dspy` | `dspy` |
-| Instructor | `openinference-instrumentation-instructor` | `instructor` |
-| CrewAI | `openinference-instrumentation-crewai` | `crewai` |
-| Haystack | `openinference-instrumentation-haystack` | `haystack` |
-| Vertex AI | `openinference-instrumentation-vertexai` | `vertexai` |
-| SmolAgents | `openinference-instrumentation-smolagents` | `smolagents` |
-| AutoGen | `openinference-instrumentation-autogen` | `autogen` |
-| AutoGen AgentChat | `openinference-instrumentation-autogen-agentchat` | `autogen_agentchat` |
-| BeeAI | `openinference-instrumentation-beeai` | `beeai` |
-| Portkey | `openinference-instrumentation-portkey` | `portkey` |
-| MCP | `openinference-instrumentation-mcp` | `mcp` |
-| Google GenAI | `openinference-instrumentation-google-genai` | `google_genai` |
-| Google ADK | `openinference-instrumentation-google-adk` | `google_adk` |
-| Pydantic AI | `openinference-instrumentation-pydantic-ai` | `pydantic_ai` |
-| OpenLLMetry | `openinference-instrumentation-openllmetry` | `openllmetry` |
-| OpenLIT | `openinference-instrumentation-openlit` | `openlit` |
-| Strands Agents | `openinference-instrumentation-strands-agents` | `strands_agents` |
-| Pipecat | `openinference-instrumentation-pipecat` | `pipecat` |
-| Agent Framework | `openinference-instrumentation-agent-framework` | `agent_framework` |
-| Agno | `openinference-instrumentation-agno` | `agno` |
-| Guardrails | `openinference-instrumentation-guardrails` | `guardrails` |
-| AgentSpec | `openinference-instrumentation-agentspec` | `agentspec` |
-| Semantic Conventions | `openinference-semantic-conventions` | `semconv` |
-| Core Instrumentation | `openinference-instrumentation` | `instrumentation` |
-
----
-
 ## Publishing
 
-### PyPI
+Release-please automates PyPI releases on PR merge. See root `CLAUDE.md` for full release management details.
 
-Release-please automates version bumps and publishes to PyPI on PR merge. To add a new instrumentor:
-1. Add the package path to `release-please-config.json`
-2. Merge a release PR to trigger the GitHub release and PyPI upload
+**Conda-Forge**: after initial PyPI publication, create a feedstock once using `grayskull pypi <package-name>` to generate `meta.yaml`, then open a PR to `conda-forge/staged-recipes`. Subsequent releases are handled automatically by the conda-forge bot.
 
-### Conda-Forge
+---
 
-After PyPI publication, create the initial Conda feedstock:
+## Preferred Patterns
 
-1. Fork `conda-forge/staged-recipes`, add a recipe in `recipes/`
-2. Run `grayskull pypi <package-name>` to generate `meta.yaml`
-3. Review `meta.yaml`: maintainers, test imports, home URL
-4. Open a PR; ping `@conda-forge/help-python` when CI passes
-5. After merge, add bot automerge issue: `@conda-forge-admin, please add bot automerge`
+### Pattern 1 — TypedDict + TypeGuard for structured extraction
 
-Subsequent releases are handled automatically by the Conda bot. Note: Conda-Forge has a several-hour delay detecting PyPI releases; if multiple releases happen the same day, only the last is usually caught.
+When reading token counts or usage metadata from untyped dicts, define a `TypedDict` for the expected shape and a `TypeGuard` function for validation. This separates validation from extraction and enables mypy strictness.
+
+```python
+from typing import TypedDict
+from typing_extensions import TypeGuard
+
+class UsageDict(TypedDict):
+    prompt_tokens: int
+    completion_tokens: int
+    total_tokens: int
+
+def is_usage_dict(obj: object) -> TypeGuard[UsageDict]:
+    return (
+        isinstance(obj, dict)
+        and isinstance(obj.get("prompt_tokens"), int)
+        and isinstance(obj.get("completion_tokens"), int)
+        and isinstance(obj.get("total_tokens"), int)
+    )
+
+if is_usage_dict(usage):
+    span.set_attribute(SpanAttributes.LLM_TOKEN_COUNT_PROMPT, usage["prompt_tokens"])
+```
+
+### Pattern 2 — Graceful serialization fallback chain
+
+For Pydantic/framework objects, never let serialization crash a span. Use a fallback chain:
+
+```python
+def _serialize(obj: Any) -> str:
+    if hasattr(obj, "model_dump_json"):
+        try:
+            return obj.model_dump_json(exclude_unset=True)
+        except Exception:
+            pass
+    if hasattr(obj, "model_dump"):
+        return safe_json_dumps(obj.model_dump())
+    if hasattr(obj, "dict"):
+        return safe_json_dumps(obj.dict())
+    return safe_json_dumps(obj)
+```
+
+### Pattern 3 — Explicit PII masking at source
+
+Don't rely solely on `TraceConfig` to strip secrets. Three approaches used in the codebase:
+
+```python
+# Blacklist pop (DSPy) — remove known-sensitive keys
+params = request_params.copy()
+params.pop("api_key", None)
+
+# Redact-list filter (LiteLLM) — exclude at collection time
+KEYS_TO_REDACT = ["api_key", "messages"]
+params = {k: v for k, v in kwargs.items() if k not in KEYS_TO_REDACT}
+
+# Whitelist (Anthropic) — safest; only collect known-safe keys
+SAFE_PARAMS = {"max_tokens", "model", "temperature", "stream", "top_k", "top_p"}
+params = {k: v for k, v in kwargs.items() if k in SAFE_PARAMS}
+
+span.set_attribute(SpanAttributes.LLM_INVOCATION_PARAMETERS, safe_json_dumps(params))
+```
+
+Whitelist never leaks new fields but needs updating as the target library evolves.
+
+### Pattern 4 — Prevent duplicate spans when frameworks nest instrumented clients
+
+When instrumenting an agent framework that itself calls instrumented LLM clients, check for an active LLM parent span before creating a new one:
+
+```python
+from opentelemetry import trace as trace_api
+from opentelemetry.sdk.trace import ReadableSpan
+from openinference.semconv.trace import SpanAttributes
+
+OPENINFERENCE_SPAN_KIND = SpanAttributes.OPENINFERENCE_SPAN_KIND
+
+def _has_active_llm_parent_span() -> bool:
+    span = trace_api.get_current_span()
+    return (
+        span.get_span_context().is_valid
+        and span.is_recording()
+        and isinstance(span, ReadableSpan)
+        and (span.attributes or {}).get(OPENINFERENCE_SPAN_KIND) == "LLM"
+    )
+```
+
+### Pattern 5 — Parametrized tests covering multiple input shapes
+
+Use `@pytest.mark.parametrize` to cover dict inputs, Pydantic model inputs, and framework-specific message types in the same test. Reviewers consistently flag missing input-variant coverage.
+
+```python
+@pytest.mark.parametrize("messages", [
+    [{"role": "user", "content": "hello"}],          # plain dict
+    [UserMessage(content="hello")],                   # framework type
+    [ChatCompletionUserMessageParam(role="user", content="hello")],  # typed param
+])
+def test_input_messages(instrumentor, tracer_provider, messages):
+    my_framework_call(messages=messages)
+    spans = get_spans()
+    assert spans[0].attributes["llm.input_messages.0.message.role"] == "user"
+```
+
+### Pattern 6 — `assert_never` for exhaustive union matching
+
+When dispatching on a discriminated union (a `type` field or `isinstance` chain), add `assert_never` at the end so mypy flags unhandled members whenever the upstream library adds a new type. Used throughout the OpenAI, OpenAI Agents, LlamaIndex, Haystack, and Bedrock instrumentors.
+
+**Variant A — `TYPE_CHECKING`-only (zero runtime cost):** Use when the union comes from an external library that may add new members. The branch is erased at runtime; mypy still enforces exhaustion.
+
+```python
+from typing import TYPE_CHECKING
+from typing_extensions import assert_never
+
+for item in content:
+    if item["type"] == "input_text":
+        yield from _get_text_attributes(item, prefix)
+    elif item["type"] == "input_image":
+        yield from _get_image_attributes(item, prefix)
+    elif item["type"] == "refusal":
+        yield from _get_refusal_attributes(item, prefix)
+    elif TYPE_CHECKING:
+        assert_never(item["type"])  # mypy catches new union members; never runs
+```
+
+**Variant B — runtime assertion:** Use for closed enums you control (e.g., an internal `ComponentType`). Raises `AssertionError` if an unexpected value reaches the else branch, which is useful during development.
+
+```python
+from typing_extensions import assert_never
+
+if component_type is ComponentType.GENERATOR:
+    ...
+elif component_type is ComponentType.EMBEDDER:
+    ...
+elif component_type is ComponentType.RETRIEVER:
+    ...
+else:
+    assert_never(component_type)  # also raises at runtime for unhandled variants
+```
+
+Prefer Variant A for external SDK types (the library may add a new `type` value in a minor release without a breaking-change warning). Prefer Variant B for internal enums where a runtime error is a useful early-warning.
+
+---
+
+## Common Pitfalls
+
+### Pitfall 1 — Truthiness checks on numeric attributes
+
+`if token_count:` silently drops legitimate zero values. Always use an explicit `None` check for any numeric span attribute (token counts, scores, etc.). This is especially common with cache/detail token fields where zero legitimately means "no cache activity".
+
+```python
+# Wrong — drops zero values (seen in LangChain cache token handling)
+if cache_creation_input_tokens:
+    yield LLM_TOKEN_COUNT_PROMPT_DETAILS_CACHE_WRITE, cache_creation_input_tokens
+
+# Correct
+if cache_creation_input_tokens is not None:
+    yield LLM_TOKEN_COUNT_PROMPT_DETAILS_CACHE_WRITE, cache_creation_input_tokens
+```
+
+### Pitfall 2 — `json.dumps()` instead of `safe_json_dumps()`
+
+`json.dumps()` raises on non-serializable objects (custom types, Pydantic models with non-JSON fields). Always use `safe_json_dumps` from `openinference.instrumentation` for all attribute serialization.
+
+```python
+# Wrong — raises TypeError on Pydantic models or custom objects
+span.set_attribute(SpanAttributes.LLM_INVOCATION_PARAMETERS, json.dumps(params))
+
+# Correct
+from openinference.instrumentation import safe_json_dumps
+span.set_attribute(SpanAttributes.LLM_INVOCATION_PARAMETERS, safe_json_dumps(params))
+```
+
+### Pitfall 3 — Importing optional dependencies at module level
+
+A top-level `import my_framework` crashes the instrumentor module on load if the library isn't installed. Always defer to inside `_instrument()`:
+
+```python
+# Wrong — top-level import crashes on load
+import my_framework
+
+# Correct — deferred inside _instrument
+def _instrument(self, **kwargs: Any) -> None:
+    try:
+        import my_framework
+    except ImportError as e:
+        raise RuntimeError("my-framework must be installed") from e
+```
+
+`TYPE_CHECKING`-guarded imports (for type annotations only) are fine at module level.
+
+---
+
+## See Also
+
+- Root `AGENTS.md` — repository-wide guide, universal instrumentor requirements, release management
+- `spec/AGENTS.md` — full semantic conventions attribute reference (language-agnostic)
