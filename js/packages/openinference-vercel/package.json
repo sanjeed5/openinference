@@ -67,7 +67,7 @@
     "@opentelemetry/resources": "^1.25.1",
     "@opentelemetry/sdk-trace-base": ">=1.19.0 <2.0.0",
     "@opentelemetry/sdk-trace-node": "^1.25.1",
-    "ai": "^6.0.0",
+    "ai": "^6.0.185",
     "vitest": "^4.0.3",
     "typescript": "^5.5.4",
     "zod": "^3.24.3"
