@@ -48,7 +48,7 @@
     "@arizeai/openinference-vercel": "2.5.5"
   },
   "devDependencies": {
-    "vitest": "^4.0.3"
+    "vitest": "^4.1.0"
   },
   "peerDependencies": {
     "@opentelemetry/api": ">=1.9.0",
